@@ -4,4 +4,4 @@ for i in range(len(s)):
     if s[i:i + 3] == 'b' + 'o' + 'b':
         count = count + 1
     else: continue
-print('The number of times bob was entered:, ', count)        
+print('Number of times bob occured is:', count)        
