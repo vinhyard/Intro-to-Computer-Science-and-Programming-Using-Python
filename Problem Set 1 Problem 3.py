@@ -4,11 +4,7 @@ s = 'azcbobobegghakl'
 alpha = ''
 beta = ''
 for i in range(len(s)):
-    if s[i: i + 1] < s[i: i + 2]:
-        if s[i] <= s[i + 1]:
-            beta += s[i] 
-            continue  
-        else: continue     
-    else:break    
-print(beta)            
+    if s[i] <= s[i + 1]:
+        beta += s[i] 
+    else: print(beta)               
 
