@@ -20,6 +20,10 @@ while i in chad:
         high += low
         print('Is your secret number', high, '?')
         chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
+        if chad == 'h':
+            low = (high-low)//4
+            high += low
+        else: break
         continue
     else:break
 
