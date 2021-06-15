@@ -10,12 +10,10 @@ chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate
 while high < 100:
     if chad == 'h':
         high //=2
-        print(high)
         print('Is your secret number', high, '?') 
         chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
         if chad == 'h':
             high //=2
-            print(high)
             print('Is your secret number', high, '?')
             chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
             if chad == 'h':
@@ -29,6 +27,11 @@ while high < 100:
                     if chad == 'h':
                         high -= 1
                         print('Is your secret number', high, '?')
+                        chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
+                        if chad != 'c':
+                            high -= 1
+                            print('Is your secret number', high, '?') 
+                            chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')               
                     if chad == 'l':
                         print('Is your secret number')
                         high += 1
@@ -41,11 +44,11 @@ while high < 100:
                 print('Is your secret number', high, '?')
         elif chad == 'l':
             high += (high//2)
-            print(high)
             print('Is your secret number', high, '?') 
+            chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
     elif chad == 'l':
-        high += high1
-        print(high)  
+        high += (high//2)
+        continue
     elif chad == 'c':
         print('Game Over. Your secret number was:', high)
         break
