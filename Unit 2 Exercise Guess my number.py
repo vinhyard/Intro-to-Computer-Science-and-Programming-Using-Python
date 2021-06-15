@@ -6,9 +6,10 @@
 
 
 high = 50
-low = high//2
-i = 'h' 
-u = 'l'
+low = 50//2
+
+i = 'l' 
+u = 'h'
 
 #high and low is for the range 0-100.
 
@@ -16,13 +17,14 @@ print('Please think of a number between 0 and 100!')
 print('Is your secret number', high, '?')
 chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
 while i in chad:
-    if i == 'h':
+    if i == 'l':
         high += low
         print('Is your secret number', high, '?')
         chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
-        if chad == 'h':
-            low = (high-low)//4
+        if chad == 'l':
+            low = low//4
             high += low
+            
         else: break
         continue
     else:break
