@@ -22,15 +22,25 @@ while i in chad:
         print('Is your secret number', high, '?')
         chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
         if chad == 'l':
-            low = low//4
+            low = low//2
             high += low
-            
+            print('Is your secret number', high, '?')
+            chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
+            if chad == 'l':
+                high += 6
+                print('Is your secret number', high, '?')
+                chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
+                if chad == 'l':
+                    high += 1
+                    print('Is your secret number, ', high, '?')
+                else:break
+            else: break    
         else: break
-        continue
+        
     else:break
 
 while u in chad:
-    if u =='l':    
+    if u =='h':    
         high -= low
         print('Is your secret number', high, '?')
         chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
