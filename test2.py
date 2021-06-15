@@ -8,7 +8,7 @@ print('Is your secret number', high, '?')
 while high <= 50:
     chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
     if chad == 'h':
-        if high == 18 or high == 37:
+        if high == 18 or high == 37 or high == 31:
   
             if chad == 'l':
                 high += (high//6)
@@ -34,7 +34,7 @@ while high <= 50:
         high //=2
         print('Is your secret number', high, '?')                  
     elif chad == 'l':  
-        if high == 18 or high == 37:
+        if high == 18 or high == 37 or high == 31:
   
             if chad == 'l':
                 high += (high//6)
