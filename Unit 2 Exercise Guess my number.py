@@ -30,10 +30,12 @@ while i in chad:
                 high += 6
                 print('Is your secret number', high, '?')
                 chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
-                if chad == 'l':
+                while chad == 'l':
                     high += 1
-                    print('Is your secret number, ', high, '?')
-                else:break
+                    print('Is your secret number ', high, '?')
+                    chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
+                    
+                
             else: break    
         else: break
         
@@ -44,7 +46,22 @@ while u in chad:
         high -= low
         print('Is your secret number', high, '?')
         chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
-        continue
+        if chad == 'h':
+            low = low//2
+            high -= low
+            print('Is your secret number', high, '?')
+            chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
+            if chad == 'h':
+                high += 6
+                print('Is your secret number', high, '?')
+                chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
+                while chad == 'h':
+                    high -= 1
+                    print('Is your secret number ', high, '?')
+                    chad = input('Enter "h" to indicate the guess is too high. Enter "l" to indicate the guess is too low. Enter "c" to indicate I guessed correctly.')
+            else: break
+        else:break            
+                   
     else:break
 if chad == 'c': print('Game over. Your secret number was:', high)
 else:print('Sorry, I did not understand your input.')    
