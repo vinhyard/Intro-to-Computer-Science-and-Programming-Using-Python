@@ -53,10 +53,6 @@ while high < 100:
         print('Game Over. Your secret number was:', high)
         break
     else: 
-        print('sorry')
+        print('Sorry, ')
+        break
         
-else:
-
-    
-
-    print('Sorry, I did not understand your input')
