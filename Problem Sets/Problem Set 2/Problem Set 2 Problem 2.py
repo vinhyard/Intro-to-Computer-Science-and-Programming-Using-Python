@@ -10,6 +10,8 @@ while balance >= 0:
     elif x == 12 and balance > 0:
         balance = (balance - will) + ((annualInterestRate/12) * (balance - will))
         will += 10
+        x -= 1
+        continue
     else: 
         balance = (balance - will) + ((annualInterestRate/12) * (balance - will))
         will += 10
