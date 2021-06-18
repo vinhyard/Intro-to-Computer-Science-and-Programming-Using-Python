@@ -15,14 +15,14 @@
 #Monthly unpaid balance = (Previous balance) - (Minimum monthly payment)
 #Updated balance each month = (Monthly unpaid balance) + (Monthly interest rate x Monthly unpaid balance)
 
-
-def chad(balance, annualInterestRate, monthlyPaymentRate):
-    x = 0
-    updatedbalance = 0
-    while x < 12:
-        updatedbalance = (balance - (monthlyPaymentRate * balance)) + ((annualInterestRate/12) * (balance - (monthlyPaymentRate * balance)))
+balance = 483
+annualInterestRate = .4
+monthlyPaymentRate = .02
+x = 0
+while x <= 12:
+    if x == 12:
+        print('Remaining balance:', round(balance, 2))  
+        break
+    else:
+        balance = balance - (monthlyPaymentRate * balance) + (annualInterestRate/12) * (balance - (monthlyPaymentRate * balance))
         x = x + 1
-    return updatedbalance
-        
-
-print(chad(42, .2, .04))  
