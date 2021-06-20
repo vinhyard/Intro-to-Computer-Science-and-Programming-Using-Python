@@ -24,36 +24,48 @@
 balance = 320000
 annualInterestRate = 0.2
 monthlyinterestrate = annualInterestRate/12
-alpha = (balance * annualInterestRate) + balance
+alpha = balance
 #lower bound is the balance divided by 12
 low = balance/12
 high = (balance * (1 + monthlyinterestrate)**12)/12
 
 guess = (low + high)/2
 
-epsilon = .08
-answ = False
+epsilon = .12
 
 
-while not answ:
-
-
-
-    if 0.01 <= guess/alpha <= epsilon:
-        answ = True
-        print(guess)
-        break
-    elif guess/alpha >= epsilon:
-        low = guess
-            
-    else:
-        high = guess
-
+while alpha >= epsilon:
 
     guess = (low + high)/2
+
+    for i in range (1, 13):
+  
+        beta = alpha - guess
+        
+
+        theta = monthlyinterestrate * beta
+
+        alpha = beta + theta
+       
+        
+
+
+    if  alpha < 0:
+
+        high = guess
+        alpha = balance
+
+     
+
+    elif alpha > epsilon:
+        low = guess
+         
+        alpha = balance
+
+
        
 
-print(guess)
+print(round(guess, 2))
 
 
 
