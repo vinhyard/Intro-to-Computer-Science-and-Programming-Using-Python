@@ -19,18 +19,19 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
+    
+    for i in range(len(secretWord)):
+      if secretWord[i] not in lettersGuessed:
+        break
+        end
+      else: 
+        return True
 
-    bao = True
-    while bao:
-    # FILL IN YOUR CODE HERE...
-      x = 0
-      for i in range(len(secretWord)):
-        if lettersGuessed[x] not in secretWord:
-          bao = False
-          return bao
+    return False
+      
         
-     
+          
 
      
 
-print(isWordGuessed('apple', ['a','e', 'i', 'k', 'p', 'r', 's']))
+print(isWordGuessed('apple', ['e', 'i', 'k', 'p', 'r', 's']))
