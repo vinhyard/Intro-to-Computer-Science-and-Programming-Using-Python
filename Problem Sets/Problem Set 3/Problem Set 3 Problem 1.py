@@ -20,21 +20,16 @@ def isWordGuessed(secretWord, lettersGuessed):
       False otherwise
     '''
 
+    bao = True
+    while bao:
     # FILL IN YOUR CODE HERE...
-    x = 0
-    for i in range(len(secretWord)):
-      if lettersGuessed[x] not in secretWord:
+      x = 0
+      for i in range(len(secretWord)):
+        if lettersGuessed[x] not in secretWord:
+          bao = False
+          return bao
         
-        return False
-        
-        break
-      else:
-        x += 1 
-        return True
-          
-          
-      
-   
+     
 
      
 
