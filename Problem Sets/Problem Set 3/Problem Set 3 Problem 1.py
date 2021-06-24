@@ -22,16 +22,16 @@ def isWordGuessed(secretWord, lettersGuessed):
     
     for i in range(len(secretWord)):
       if secretWord[i] not in lettersGuessed:
+        return False
         break
-        end
-      else: 
-        return True
+        
+    
 
-    return False
+    return True
       
         
           
 
      
 
-print(isWordGuessed('apple', ['e', 'i', 'k', 'p', 'r', 's']))
+print(isWordGuessed('apple', ['a','e', 'i', 'k', 'p', 'r', 's']))

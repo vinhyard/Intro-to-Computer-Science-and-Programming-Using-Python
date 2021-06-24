@@ -17,6 +17,7 @@
 #For this function, you may assume that all the letters in secretWord and lettersGuessed are lowercase.
 
 
+
 def getGuessedWord(secretWord, lettersGuessed):
 
     '''
@@ -24,9 +25,11 @@ def getGuessedWord(secretWord, lettersGuessed):
     lettersGuessed: list, what letters have been guessed so far
     returns: string, comprised of letters and underscores that represents what letters in secretWord have been guessed so far.
     '''
+    nio = secretWord
+    for i in range(len(secretWord)):
+        if secretWord[i] not in lettersGuessed:
+            nio = nio.replace(secretWord[i], '_ ')
 
-    getGuessedWord = [secretWord.replace(secretWord[i], '_ ') for i in range(len(secretWord)) if secretWord[i] not in lettersGuessed]
-    return getGuessedWord
-
+    return nio
 
 print(getGuessedWord('apple', ['e', 'i', 'k', 'p', 'r', 's']))
