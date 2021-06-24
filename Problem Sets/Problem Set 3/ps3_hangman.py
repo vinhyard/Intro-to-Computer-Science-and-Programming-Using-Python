@@ -93,32 +93,47 @@ def getAvailableLetters(lettersGuessed):
         nio = nio.replace(string.ascii_lowercase[i], '')
     return nio
 
+
 def hangman(secretWord):
-    '''
-    secretWord: string, the secret word to guess.
+    mistakesMade = 8
+    lettersGuessed = []
+    matt = '_ '
+    print('Welcome to the game of Hangman!')
+    print('I am thinking of a word that is ', len(secretWord), 'letters long')
+    while mistakesMade >= 1 or isWordGuessed(secretWord, lettersGuessed) == False:
+      print("-----------")
+      print('You have', mistakesMade, 'guesses left')
+      print('Available letters:', getAvailableLetters(lettersGuessed))
+      chad = input('Please guess a letter:')
+      chad.lower
+      if str(chad) in secretWord:
+        if str(chad) in lettersGuessed:
+          print("Oops! You've already guessed that letter:", getGuessedWord(secretWord, lettersGuessed))
+        else:
+          lettersGuessed.append(str(chad))
+          print('Good guess:', getGuessedWord(secretWord, lettersGuessed))
+          if matt not in getGuessedWord(secretWord, lettersGuessed):
+            print("-----------") 
+            print('Congratulations, you won!')
+            break
+      elif str(chad) not in secretWord:
+        print('Oops! That letter is not in my word:', getGuessedWord(secretWord, lettersGuessed))
+        mistakesMade -= 1
+        if mistakesMade == 0: 
+          print('-----------')
+          print('Sorry, you ran out of guesses. The word was', secretWord,'.')
+          break
+      else: print('Oops! Try again')
+      lettersGuessed.append(str(chad))
 
-    Starts up an interactive game of Hangman.
 
-    * At the start of the game, let the user know how many 
-      letters the secretWord contains.
-
-    * Ask the user to supply one guess (i.e. letter) per round.
-
-    * The user should receive feedback immediately after each guess 
-      about whether their guess appears in the computers word.
-
-    * After each round, you should also display to the user the 
-      partially guessed word so far, as well as letters that the 
-      user has not yet guessed.
-
-    Follows the other limitations detailed in the problem write-up.
-    '''
-    # FILL IN YOUR CODE HERE...
+   
+secretWord = chooseWord(wordlist).lower()
 
 
+hangman(secretWord)
 
-
-
+    
 
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
