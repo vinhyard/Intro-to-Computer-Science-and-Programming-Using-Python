@@ -50,8 +50,17 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE...
+        
+    for i in range(len(secretWord)):
+      if secretWord[i] not in lettersGuessed:
+        return False
+        break
+        
+    
 
+    return True
+      
+        
 
 
 def getGuessedWord(secretWord, lettersGuessed):
@@ -62,7 +71,12 @@ def getGuessedWord(secretWord, lettersGuessed):
       what letters in secretWord have been guessed so far.
     '''
     # FILL IN YOUR CODE HERE...
+    nio = secretWord
+    for i in range(len(secretWord)):
+      if secretWord[i] not in lettersGuessed:
+        nio = nio.replace(secretWord[i], '_ ')
 
+    return nio
 
 
 def getAvailableLetters(lettersGuessed):
@@ -72,7 +86,12 @@ def getAvailableLetters(lettersGuessed):
       yet been guessed.
     '''
     # FILL IN YOUR CODE HERE...
-    
+    import string
+    nio = string.ascii_lowercase
+    for i in range(len(string.ascii_lowercase)):
+      if string.ascii_lowercase[i] in lettersGuessed:
+        nio = nio.replace(string.ascii_lowercase[i], '')
+    return nio
 
 def hangman(secretWord):
     '''
