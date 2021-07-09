@@ -172,11 +172,15 @@ def isValidWord(word, hand, wordList):
     wordList: list of lowercase strings
     """
     # TO DO ... <-- Remove this comment when you code this function
-    thim = False
-    while not thim:
-        for i in word:
-            if word in wordList and i in hand:
-                thim = True
+    thim = True
+    
+    for i in word:
+        if i in hand:
+            if word in wordList:
+                return thim
+              
+            else: thim = False
+        return thim 
             
             
 
@@ -191,9 +195,11 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
-
-
+    count = 0 
+    for i in hand.values():
+        if i > 0:
+            count += i
+    return int(count)
 
 def playHand(hand, wordList, n):
     """
@@ -245,6 +251,17 @@ def playHand(hand, wordList, n):
                 
 
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
+    while len(hand) > 0:
+        print('Current Hand', hand)
+        will = input('Enter word, or a "." to indicate that you are finished:')
+        if will == '.':
+            break
+        else:
+            if will not in wordList:
+                print('Invalid word, please try again')
+            else:
+                print(getWordScore(will, n))
+                print(updateHand(hand,will))
 
 
 #
