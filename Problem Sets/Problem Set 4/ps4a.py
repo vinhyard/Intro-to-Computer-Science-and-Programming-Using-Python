@@ -15,7 +15,7 @@ SCRABBLE_LETTER_VALUES = {
 # Helper code
 # (you don't need to understand this helper code)
 
-WORDLIST_FILENAME = "words.txt"
+WORDLIST_FILENAME = "C:/Users/User1/Desktop/mit/Intro-to-Computer-Science-and-Programming-Using-Python/Problem Sets/Problem Set 4/words.txt"
 
 def loadWords():
     """
@@ -73,8 +73,17 @@ def getWordScore(word, n):
     """
     # TO DO ... <-- Remove this comment when you code this function
 
+    sia = 0
+    for i in word:
+        sia += SCRABBLE_LETTER_VALUES[i]
 
+    sia *= len(word)
 
+    if len(word) == n:
+        sia += 50
+
+    return sia
+            
 #
 # Problem #2: Make sure you understand how this function works and what it does!
 #
@@ -143,8 +152,10 @@ def updateHand(hand, word):
     returns: dictionary (string -> int)
     """
     # TO DO ... <-- Remove this comment when you code this function
-
-
+    ball = hand.copy()
+    for i in word:
+        ball[i] = ball.get(i, 0) + 1
+    return ball
 
 #
 # Problem #3: Test word validity
@@ -161,7 +172,13 @@ def isValidWord(word, hand, wordList):
     wordList: list of lowercase strings
     """
     # TO DO ... <-- Remove this comment when you code this function
-
+    thim = False
+    while not thim:
+        for i in word:
+            if word in wordList and i in hand:
+                thim = True
+            
+            
 
 #
 # Problem #4: Playing a hand
@@ -258,3 +275,6 @@ def playGame(wordList):
 if __name__ == '__main__':
     wordList = loadWords()
     playGame(wordList)
+
+
+print(updateHand({}, 'apples'))
