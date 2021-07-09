@@ -154,7 +154,7 @@ def updateHand(hand, word):
     # TO DO ... <-- Remove this comment when you code this function
     ball = hand.copy()
     for i in word:
-        ball[i] = ball.get(i, 0) + 1
+        ball[i] = ball.get(i, 0) - 1
     return ball
 
 #
@@ -172,15 +172,17 @@ def isValidWord(word, hand, wordList):
     wordList: list of lowercase strings
     """
     # TO DO ... <-- Remove this comment when you code this function
-    thim = True
-    
+    balls = hand.copy()
+    if word not in wordList:
+        return False
     for i in word:
-        if i in hand:
-            if word in wordList:
-                return thim
-              
-            else: thim = False
-        return thim 
+        if i not in hand:
+            return False
+        elif i in hand:
+            balls[i] = balls.get(i, 0) - 1
+        elif balls[i] <= 0:
+            return False
+    return True
             
             
 
@@ -251,16 +253,20 @@ def playHand(hand, wordList, n):
                 
 
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
+    totaldramaisland = 0
     while len(hand) > 0:
         print('Current Hand', hand)
         will = input('Enter word, or a "." to indicate that you are finished:')
         if will == '.':
+            print('Goodbye! Total score:', totaldramaisland, 'points.')
             break
         else:
             if will not in wordList:
                 print('Invalid word, please try again')
             else:
-                print(getWordScore(will, n))
+                totaldramaisland += getWordScore(will, n)
+                
+                print("".join(will), 'earned', getWordScore(will, n), 'points. Total:', totaldramaisland, 'points')
                 print(updateHand(hand,will))
 
 
@@ -294,4 +300,4 @@ if __name__ == '__main__':
     playGame(wordList)
 
 
-print(updateHand({}, 'apples'))
+print(playHand({'h':1, 'i':1, 'c':1, 'z':1, 'm':2, 'a':1}, wordList, 7))
