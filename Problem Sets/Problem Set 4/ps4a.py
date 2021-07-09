@@ -254,8 +254,8 @@ def playHand(hand, wordList, n):
 
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
     totaldramaisland = 0
-    while len(hand) > 0:
-        print('Current Hand', hand)
+    while hand.values() > 0:
+        print('Current Hand', hand.keys())
         will = input('Enter word, or a "." to indicate that you are finished:')
         if will == '.':
             print('Goodbye! Total score:', totaldramaisland, 'points.')
